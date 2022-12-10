@@ -68,8 +68,7 @@ public class Main {
         int[] values = {10, 9, 5, 4, 1};
         String[] romanNumerals = {"X", "IX", "V", "IV", "I"};
         int i = 0;
-
-        //Здесь происходит главная задача
+        
         while(i < values.length) {
             if(number >= values[i]) {
                 result += romanNumerals[i];
