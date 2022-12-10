@@ -5,7 +5,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
+        System.out.println("Введите выражение в формате Х +-*/ Y (где Х Y арабские или римские числа от 1 до 10):");
         var scanner = new java.util.Scanner(System.in);
         System.out.println(calc(scanner.nextLine()));
 
@@ -68,7 +68,7 @@ public class Main {
         int[] values = {10, 9, 5, 4, 1};
         String[] romanNumerals = {"X", "IX", "V", "IV", "I"};
         int i = 0;
-        
+
         while(i < values.length) {
             if(number >= values[i]) {
                 result += romanNumerals[i];
