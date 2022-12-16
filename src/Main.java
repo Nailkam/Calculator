@@ -13,8 +13,8 @@ public class Main {
 
     //Возвращает значение римской цифры
     static int getValue(char c) {
-        char[] roamn_array = {'I', 'V', 'X'};
-        int[] arabic_array = {1, 5, 10 };
+        char[] roamn_array = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
+        int[] arabic_array = {1, 5, 10, 50, 100, 500, 1000};
         for(int i = 0; i < roamn_array.length; i++) {
             if(c == roamn_array[i]) {
                 return arabic_array[i];
@@ -24,7 +24,7 @@ public class Main {
     }
 
     static int romanToArabic(String number) {
-        if(!number.matches("[IVX]+") || number.equals("") || number == null) {
+        if(!number.matches("[IVXLCDM]+") || number.equals("") || number == null) {
             throw new IllegalArgumentException("Incorrectly entered data");
         }
         int length = number.length();
@@ -62,11 +62,11 @@ public class Main {
     static String arabicToRoman(int number) {
         //
         if(number < 1) throw new IllegalArgumentException("В римской системе нет отрицательных чисел.");
-       // if(number > 10) throw new IllegalArgumentException("Поддерживает только числа от 1 до 10.");
+        if(number > 3999) throw new IllegalArgumentException("Поддерживает только числа от 1 до 3999.");
 
         String result = "";
-        int[] values = {10, 9, 5, 4, 1};
-        String[] romanNumerals = {"X", "IX", "V", "IV", "I"};
+        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] romanNumerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         int i = 0;
 
         while(i < values.length) {
@@ -107,11 +107,11 @@ public class Main {
     }
 
     static int tryOperation(int a, int b, char operation) throws IllegalArgumentException {
-        if (a > 10)
-            throw new IllegalArgumentException("Числа вне диапазона: " + a + "> 10.");
+      //  if (a > 10)
+      //      throw new IllegalArgumentException("Числа вне диапазона: " + a + "> 10.");
 
-        if (b > 10)
-            throw new IllegalArgumentException("Числа вне диапазона: " + b + "> 10.");
+      //  if (b > 10)
+      //      throw new IllegalArgumentException("Числа вне диапазона: " + b + "> 10.");
 
         switch (operation) {
             case '+':
